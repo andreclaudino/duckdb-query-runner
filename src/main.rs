@@ -1,18 +1,18 @@
-use core::run_for_parameters_list;
+use crate::core::run_for_parameters_list;
 use std::sync::Arc;
 
-use constants::TEMPLATE_NAME;
-use duckdb::DuckDBClient;
-use log_utils::initialize_log;
-use persistence::load_parameters_list;
-use template::load_template;
+use crate::constants::TEMPLATE_NAME;
+use crate::duckdb_client::DuckDBClient;
+use crate::log_utils::initialize_log;
+use crate::persistence::load_parameters_list;
+use crate::template::load_template;
 
 mod command_line;
 mod constants;
 mod persistence;
 mod template;
 mod core;
-mod duckdb;
+mod duckdb_client;
 mod log_utils;
 
 

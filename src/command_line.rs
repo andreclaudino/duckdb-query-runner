@@ -10,7 +10,7 @@ pub struct CommandLine {
 
     #[clap(long, env)]
     /// The path for a YAML file containing an Array of the parameters for the YAML template
-    pub parameters_source_path: String,
+    pub parameters_source_path: Option<String>,
     
     #[clap(long, env, default_value="1")]
     /// The number of queries (elements of parameters array file) to be executed at the same time

@@ -2,7 +2,7 @@ use std::{sync::Arc, collections::HashMap};
 
 use futures::StreamExt;
 
-use crate::{duckdb::DuckDBClient, template::render_one, constants::TEMPLATE_NAME};
+use crate::{duckdb_client::DuckDBClient, template::render_one, constants::TEMPLATE_NAME};
 
 pub async fn run_for_parameters_list(athena_client: Arc<DuckDBClient>, environment: Arc<tera::Tera>, parameters_list: Vec<HashMap<String, serde_yaml::Value>>, max_concurrent_queries: usize) -> anyhow::Result<()> {
 
