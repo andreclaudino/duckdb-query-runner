@@ -41,3 +41,4 @@ RUN apt-get update && \
     update-ca-certificates
 
 COPY --from=builder /application/bin/${binary_name} /usr/bin/
+RUN ln /usr/bin/${binary_name} /usr/bin/run
