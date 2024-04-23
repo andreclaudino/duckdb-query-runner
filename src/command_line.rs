@@ -27,6 +27,14 @@ pub struct CommandLine {
     #[clap(long, env)]
     /// The AWS region to load data from S3
     pub aws_region: Option<String>,
+
+    #[clap(long, env)]
+    /// Path to the DuckDB database file
+    pub database_path: Option<String>,
+
+    #[clap(long, env)]
+    /// Maximum memory for DuckDB
+    pub max_memory: Option<String>
 }
 
 impl CommandLine {

@@ -1,4 +1,4 @@
-FROM docker.io/rust:1.70-slim-buster as builder
+FROM docker.io/rust:1.77-slim-buster as builder
 
 ARG binary_name
 
@@ -22,7 +22,7 @@ RUN cargo test && \
     mv /application/target/release/${binary_name} /application/bin/${binary_name}
 
 # Final image
-FROM docker.io/debian:buster-slim
+FROM docker.io/ubuntu:22.04
 
 ARG binary_name
 
@@ -31,6 +31,7 @@ LABEL "org.opencontainers.image.revision"="${GIT_REFERENCE}"
 LABEL "org.opencontainers.image.version"="${VERSION}"
 
 WORKDIR /application
+ADD libs/h3ext.duckdb_extension /application/
 
 RUN apt-get update && \
     apt-get install -y \

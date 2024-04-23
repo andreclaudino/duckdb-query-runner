@@ -15,6 +15,8 @@ flags/build: flags/create
 		--build-arg GIT_REFERENCE=$(GIT_REFERENCE) \
 		--build-arg VERSION=$(PROJECT_VERSION) \
 		--build-arg binary_name=${BINARY_NAME}
+		--platform linux/amd64,linux/arm64
+
 	touch flags/build
 
 
@@ -33,7 +35,7 @@ flags/push: flags/login flags/tag
 	podman push $(IMAGE_NAME)
 
 
-
 clean:
 	rm -rf flags/
+	podman rmi docker.io/andreclaudino/duckdb-query-runner:latest
 	rm -rf $(CERTIFICATES_PATH)/create

@@ -23,7 +23,7 @@ async fn main() -> anyhow::Result<()> {
     let arguments = command_line::CommandLine::fetch();
 
     let duckdb_client =
-        Arc::new(DuckDBClient::new(arguments.aws_region, arguments.aws_access_key_id, arguments.aws_secret_access_key)?);
+        Arc::new(DuckDBClient::new(arguments.aws_region, arguments.aws_access_key_id, arguments.aws_secret_access_key, &arguments.database_path, &arguments.max_memory)?);
     let template_environment = Arc::new(load_template(&arguments.query_template_path, TEMPLATE_NAME).await?);
     let parameters_list = load_parameters_list(&arguments.parameters_source_path)?;
 
