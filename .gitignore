@@ -2,3 +2,5 @@
 resources/
 .vscode/
 flags/
+libs/
+outputs/
